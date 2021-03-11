@@ -82,5 +82,9 @@ class CreateDB extends Database
 
         );
 
-
+    private $tableInitialize = array(
+        ['table'=>'users','fields'=>['username','email','password','permission'],
+        'value'=>['okabe','irvaniali79@gmail.com','12345678','admin']]
+    );
+    
 }
