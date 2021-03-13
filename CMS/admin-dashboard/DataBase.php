@@ -9,10 +9,10 @@ class DataBase
     private $connection;
     private $options=array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE=>PDO::FETCH_ASSOC);
-    private $dbHost;
-    private $dbName;
-    private $dbUsername;
-    private $dbPassword;
+    private $dbHost='127.0.0.1';
+    private $dbName='mycms';
+    private $dbUsername='root';
+    private $dbPassword='';
     function __construct()
     {
         try{
