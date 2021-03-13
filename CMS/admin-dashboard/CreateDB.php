@@ -92,7 +92,9 @@ class CreateDB extends Database
         {
             $this->createTable($createTableQueries);
         }
-        foreach($this->tableInitializes as $tableInitialize)
+        foreach($this->tableInitializes as $tableInitialize){
+            $this->insert($tableInitialize['table'],$tableInitialize['fields'],$tableInitialize['value']);
+        }
     }
 
 }
