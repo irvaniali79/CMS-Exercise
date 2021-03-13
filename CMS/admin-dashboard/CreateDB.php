@@ -84,7 +84,7 @@ class CreateDB extends Database
 
     private $tableInitializes = array(
         ['table'=>'users','fields'=>['username','email','password','permission'],
-        'value'=>['okabe','irvaniali79@gmail.com','12345678','admin']]
+        'values'=>['okabe','irvaniali79@gmail.com','12345678','admin']]
     );
     public function run()
     {
@@ -93,7 +93,7 @@ class CreateDB extends Database
             $this->createTable($createTableQueries);
         }
         foreach($this->tableInitializes as $tableInitialize){
-            $this->insert($tableInitialize['table'],$tableInitialize['fields'],$tableInitialize['value']);
+            $this->insert($tableInitialize['table'],$tableInitialize['fields'],$tableInitialize['values']);
         }
     }
 
