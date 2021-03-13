@@ -23,6 +23,26 @@ class DataBase
             
         }
     }
+    public function select($sql,$values=NULL)
+    {
+        try{
+            if($values==NULL){
+                return $this->connection->query($sql);
+            }
+            else{
+                $stmt=$this->connection->prepare($sql);
+                $stmt=$stmt->execute($values);
+                $result=$stmt;
+                return $result;
+
+            }
+        }catch(Exception $e)
+        {
+            echo "<div style='color:red;'> there is some problem in connection :". $e->getMessage();
+            return false;
+        }
+    }
+    
     public function createTable($sql)
     {
         try{
