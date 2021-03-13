@@ -2,6 +2,7 @@
 namespace DataBase;
 use PDO;
 use Exception;
+use PDOException;
 
 class DataBase
 {
@@ -18,7 +19,7 @@ class DataBase
             $this->connection = new PDO("mysql:host=".$this->dbHost.";dbname=".
             $this->dbName,$this->dbUsername,$this->dbPassword,$this->options);
         }
-        catch(Exception $e){
+        catch(PDOException $e){
             echo "<div style='color:red;'> there is some problem in connection :". $e->getMessage();
             
         }
@@ -36,7 +37,7 @@ class DataBase
                 return $result;
 
             }
-        }catch(Exception $e)
+        }catch(PDOException $e)
         {
             echo "<div style='color:red;'> there is some problem in connection :". $e->getMessage();
             return false;
@@ -49,7 +50,7 @@ class DataBase
                 ',created_at) VALUES ( :'.implode(',:',$fields).',now() );');
                 $stmt->execute(array_combine($fields,$values));
                 return True;
-        }catch(Exception $e)
+        }catch(PDOException $e)
         {
             echo "<div style='color:red;'> there is some problem in connection :". $e->getMessage();
             return false;
@@ -62,7 +63,7 @@ class DataBase
             $this->connection->exec($sql);
             return true;
         }
-        catch(Exception $e)
+        catch(PDOException $e)
         {
             echo "<div style='color:red;'> there is some problem in connection :". $e->getMessage();
             return false;
