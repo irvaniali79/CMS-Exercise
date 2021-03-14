@@ -46,13 +46,12 @@ class DataBase
     public function insert($tableName,$fields,$values)
     {
         try{
-                $stmt=$this->connection->prepare('INSERT INTO'.$tableName.'('.implode(',',$fields).
-                ',created_at) VALUES ( :'.implode(',:',$fields).',now() );');
-                $stmt->execute(array_combine($fields,$values));
-                return True;
-        }catch(PDOException $e)
-        {
-            echo "<div style='color:red;'> there is some problem in connection :". $e->getMessage();
+            $stmt= $this->connection->prepare("INSERT INTO ".$tableName."(".implode(', ',$fields)." , created_at) VALUES ( :" . implode(', :',$fields) . " , now() );");
+            $stmt->execute(array_combine($fields,$values));
+            return true;
+        }
+        catch (PDOException $e){
+            echo "<div> style='color:red;'> There is some problem in connection :</div>". $e->getMessage();
             return false;
         }
     }
