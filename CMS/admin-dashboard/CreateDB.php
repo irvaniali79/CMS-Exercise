@@ -9,8 +9,8 @@ class CreateDB extends Database
         "CREATE TABLE `categories` (
             `id` int(11) NOT NULL AUTO_INCREMENT  ,
             `name` varchar(200) COLLATE utf8_persian_ci NOT NULL,
-            `create_at` datetime NOT NULL,
-            `update_at` datetime DEFAULT NULL,
+            `created_at` datetime NOT NULL,
+            `updated_at` datetime DEFAULT NULL,
             PRIMARY KEY(`id`)
         )ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;",
         
@@ -20,8 +20,8 @@ class CreateDB extends Database
             `email` varchar(100) NOT NULL COLLATE utf8_persian_ci,
             `password` varchar(100) NOT NULL COLLATE utf8_persian_ci ,
             `permission` enum('user','admin') COLLATE utf8_persian_ci NOT NULL DEFAULT 'user',
-            `create_at` datetime NOT NULL,
-            `update_at` datetime DEFAULT NULL,
+            `created_at` datetime NOT NULL,
+            `updated_at` datetime DEFAULT NULL,
             PRIMARY KEY (`id`),
             UNIQUE KEY email (`email`)
         )ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;",
@@ -36,8 +36,8 @@ class CreateDB extends Database
             `cat_id` int(11)  NOT NULL,
             `image` varchar(200) COLLATE utf8_persian_ci NOT NULL,
             `status` enum('disable','enable') COLLATE utf8_persian_ci NOT NULL DEFAULT 'disable',
-            `create_at` datetime NOT NULL,
-            `update_at` datetime DEFAULT NULL,
+            `created_at` datetime NOT NULL,
+            `updated_at` datetime DEFAULT NULL,
             PRIMARY KEY (`id`),
             FOREIGN KEY (`cat_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
             FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -49,8 +49,8 @@ class CreateDB extends Database
             `comment` text COLLATE utf8_persian_ci NOT NULL,
             `article_id` int(11) NOT NULL ,
             `status` enum('disable','enable') COLLATE utf8_persian_ci NOT NULL DEFAULT 'disable',
-            `create_at` datetime NOT NULL,
-            `update_at` datetime DEFAULT NULL,
+            `created_at` datetime NOT NULL,
+            `updated_at` datetime DEFAULT NULL,
             PRIMARY KEY (`id`),
             FOREIGN KEY (`article_id`) REFERENCES `articels` (`id`)  ON DELETE CASCADE ON UPDATE CASCADE,
             FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)  ON DELETE CASCADE ON UPDATE CASCADE
@@ -61,8 +61,8 @@ class CreateDB extends Database
             `name` varchar(200) COLLATE utf8_persian_ci NOT NULL,
             `url` varchar(300) COLLATE utf8_persian_ci NOT NULL,
             `parent_id` int(11) NOT NULL ,
-            `create_at` datetime DEFAULT NULL,
-            `update_at` datetime DEFAULT NULL,
+            `created_at` datetime DEFAULT NULL,
+            `updated_at` datetime DEFAULT NULL,
             PRIMARY KEY (`id`),
             FOREIGN KEY (`parent_id`) REFERENCES `menus` (`id`)  ON DELETE CASCADE ON UPDATE CASCADE
         )ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;",
@@ -74,8 +74,8 @@ class CreateDB extends Database
             `keywords` text COLLATE utf8_persian_ci DEFAULT NULL,
             `logo` text COLLATE utf8_persian_ci DEFAULT NULL,
             `icon` text COLLATE utf8_persian_ci DEFAULT NULL,
-            `create_at` datetime DEFAULT NULL,
-            `update_at` datetime DEFAULT NULL,
+            `created_at` datetime DEFAULT NULL,
+            `updated_at` datetime DEFAULT NULL,
             PRIMARY KEY (`id`)
         )ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;"
 
