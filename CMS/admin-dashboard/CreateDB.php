@@ -26,23 +26,22 @@ class CreateDB extends Database
             UNIQUE KEY email (`email`)
         )ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;",
 
-        "CREATE TABLE `articels` (
+        "CREATE TABLE `articles` (
             `id` int(11) NOT NULL AUTO_INCREMENT,
             `title` varchar(200) COLLATE utf8_persian_ci NOT NULL,
             `summary` text COLLATE utf8_persian_ci NOT NULL,
             `body` text COLLATE utf8_persian_ci NOT NULL,
-            `view` int (11) NOT NULL DEFAULT '0',
-            `user_id` int(11) NOT NULL ,
-            `cat_id` int(11) NOT NULL ,
+            `view` int(11) NOT NULL DEFAULT '0',
+            `user_id` int(11)  NOT NULL,
+            `cat_id` int(11)  NOT NULL,
             `image` varchar(200) COLLATE utf8_persian_ci NOT NULL,
             `status` enum('disable','enable') COLLATE utf8_persian_ci NOT NULL DEFAULT 'disable',
             `create_at` datetime NOT NULL,
             `update_at` datetime DEFAULT NULL,
             PRIMARY KEY (`id`),
-            FOREIGN KEY (`cat_id`) REFERENCES `categories` (`id`)  ON DELETE CASCADE ON UPDATE CASCADE,
-            FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)  ON DELETE CASCADE ON UPDATE CASCADE
-
-        )ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;",
+            FOREIGN KEY (`cat_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+            FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;",
 
         "CREATE TABLE `comments` (
             `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -66,7 +65,6 @@ class CreateDB extends Database
             `update_at` datetime DEFAULT NULL,
             PRIMARY KEY (`id`),
             FOREIGN KEY (`parent_id`) REFERENCES `menus` (`id`)  ON DELETE CASCADE ON UPDATE CASCADE
-
         )ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;",
 
         "CREATE TABLE `websetting` (
