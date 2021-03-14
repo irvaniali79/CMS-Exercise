@@ -52,7 +52,7 @@ class CreateDB extends Database
             `created_at` datetime NOT NULL,
             `updated_at` datetime DEFAULT NULL,
             PRIMARY KEY (`id`),
-            FOREIGN KEY (`article_id`) REFERENCES `articels` (`id`)  ON DELETE CASCADE ON UPDATE CASCADE,
+            FOREIGN KEY (`article_id`) REFERENCES `articles` (`id`)  ON DELETE CASCADE ON UPDATE CASCADE,
             FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)  ON DELETE CASCADE ON UPDATE CASCADE
         )ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;",
 
