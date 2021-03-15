@@ -55,6 +55,36 @@ class DataBase
             return false;
         }
     }
+    public function update($tableName,$id,$fields,$values)
+    {
+            $sql="UPADATE ".$tableName." SET ;";
+            foreach (array_combine($fields,$values) as $field => $value) {
+                if($value)
+                {
+                    $sql.=" `".$field."` = ? ,"; 
+                }
+                else
+                {
+                    $sql.=" `".$field."` = NULL ,";
+                }
+            }
+            $sql.=" `updated_at ` = now()";
+            $sql.= "WHERE `id` = ?";
+            try {
+                $stmt=$this->connection->prepare($sql);
+                $affectedrows=$stmt->execute(array_merge(array_filter(array_values($value)),[$id]));
+
+                if(isset($affectedrows)){
+                    echo "recored are Updated ";
+                }
+                return true;
+            }catch(PDOException $e)
+            {
+                echo "<div> style='color:red;'> There is some problem in connection :</div>". $e->getMessage();
+                return false;
+            }
+                
+    }
     public function createTable($sql)
     {
         try{
