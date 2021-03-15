@@ -13,7 +13,7 @@ class Category extends Admin{
     }
     public function show($id){
         $db = new Database();
-        $category= $db->select("SELECT * FROM `categories` WHERE (`id` = ?);",([$id])->fetch());
+        $category= $db->select("SELECT * FROM `categories` WHERE (`id` = ?);",[$id])->fetch();
         
 
     }
@@ -29,7 +29,7 @@ class Category extends Admin{
     } 
     public function edit($id){
         $db = new Database();
-        $category= $db->select("SELECT * FROM `categories` WHERE (`id` = ?);",([$id])->fetch());
+        $category= $db->select("SELECT * FROM `categories` WHERE (`id` = ?);",[$id])->fetch();
 
     } 
     public function update($request,$id){
