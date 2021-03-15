@@ -28,7 +28,9 @@ class Category extends Admin{
 
     } 
     public function edit($id){
-
+        $db = new Database();
+        $category= $db->select("SELECT * FROM `categories` WHERE (`id` = ?);",([$id])->fetch());
+        
     } 
     public function update($id){
 
