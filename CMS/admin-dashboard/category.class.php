@@ -30,12 +30,15 @@ class Category extends Admin{
     public function edit($id){
         $db = new Database();
         $category= $db->select("SELECT * FROM `categories` WHERE (`id` = ?);",([$id])->fetch());
-        
-    } 
-    public function update($id){
 
+    } 
+    public function update($request,$id){
+        $db = new Database();
+        $db->update('categories',$id,array_keys($request),$request); 
     }
     public function delete(){
+        
+
 
     }
     
