@@ -36,9 +36,9 @@ class Category extends Admin{
         $db = new Database();
         $db->update('categories',$id,array_keys($request),$request); 
     }
-    public function delete(){
-        
-
+    public function delete($id){
+        $db = new Database();
+        $db->delete('categories',$id);
 
     }
     
