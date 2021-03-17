@@ -1,4 +1,7 @@
 <?php
+
+use AdminDashboard\Category;
+
 require_once(realpath(dirname(__FILE__) . "/../layouts/head-tag.php"));
 ?>
     <section class="pt-3 pb-1 mb-2 border-bottom">
@@ -10,7 +13,7 @@ require_once(realpath(dirname(__FILE__) . "/../layouts/head-tag.php"));
         <form method="post" action="#">
             <div class="form-group">
                 <label for="name">Title</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="Enter name ..." value="Sport">
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter name ..." value="<?php category['name']?>">
                 <!--            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
             </div>
             <button type="submit" class="btn btn-primary btn-sm">update</button>
