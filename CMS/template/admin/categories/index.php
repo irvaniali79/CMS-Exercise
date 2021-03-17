@@ -27,7 +27,7 @@ require_once(realpath(dirname(__FILE__) . "/../layouts/head-tag.php"));
                 <td><?php $category['name']?></td>
                 <td>
                     <a role="button" href="#" class="btn btn-sm btn-info my-0 mx-1 text-white">update</a>
-                    <a role="button" href="#" class="btn btn-sm btn-danger my-0 mx-1 text-white">delete</a>
+                    <a role="button" href="http://localhost/www/CMS/category/delete/<?php $category['id']; ?>" class="btn btn-sm btn-danger my-0 mx-1 text-white">delete</a>
                 </td>
             </tr>
 <?php }?>
