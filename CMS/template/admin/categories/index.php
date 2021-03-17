@@ -1,4 +1,7 @@
 <?php
+
+use AdminDashboard\Category;
+
 require_once(realpath(dirname(__FILE__) . "/../layouts/head-tag.php"));
 ?>
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -18,32 +21,16 @@ require_once(realpath(dirname(__FILE__) . "/../layouts/head-tag.php"));
                 </tr>
             </thead>
             <tbody>
-
+<?php foreach ($categories as $category){?>
             <tr>
-                <td>1</td>
-                <td>Sport</td>
+                <td><?php $category['id']?></td>
+                <td><?php $category['name']?></td>
                 <td>
                     <a role="button" href="#" class="btn btn-sm btn-info my-0 mx-1 text-white">update</a>
                     <a role="button" href="#" class="btn btn-sm btn-danger my-0 mx-1 text-white">delete</a>
                 </td>
             </tr>
-            <tr>
-                <td>2</td>
-                <td>Economic</td>
-                <td>
-                    <a role="button" href="#" class="btn btn-sm btn-info my-0 mx-1 text-white">update</a>
-                    <a role="button" href="#" class="btn btn-sm btn-danger my-0 mx-1 text-white">delete</a>
-                </td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Culture</td>
-                <td>
-                    <a role="button" href="#" class="btn btn-sm btn-info my-0 mx-1 text-white">update</a>
-                    <a role="button" href="#" class="btn btn-sm btn-danger my-0 mx-1 text-white">delete</a>
-                </td>
-            </tr>
-
+<?php }?>
             </tbody>
         </table>
     </div>
