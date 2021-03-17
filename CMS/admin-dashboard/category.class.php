@@ -8,7 +8,7 @@ use DataBase\DataBase;
 class Category extends Admin{
     public function index(){
         $db = new Database();
-        $category= $db->select("SELECT * FROM `categories` ORDER BY `id` DESC;");
+        $categories= $db->select("SELECT * FROM `categories` ORDER BY `id` DESC;");
         require_once(realpath(__FILE__)."../template/admin/categories/index.php");
     }
     public function show($id){
