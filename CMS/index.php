@@ -66,7 +66,7 @@ function uri($uri,$class,$method,$requestMethod='GET')
                 }  
             }   
             else{
-                $object->$method;
+                $object->$method();
             }   
         }
 
