@@ -13,7 +13,7 @@ class Category extends Admin{
     }
     public function show($id){
         $db = new Database();
-        $category= $db->select("SELECT * FROM `categories` WHERE (`id` = ?);",[$id])->fetch();
+        $categories= $db->select("SELECT * FROM `categories` WHERE (`id` = ?);",[$id])->fetch();
         require_once(realpath(__FILE__)."../template/admin/categories/show.php");
         
 
