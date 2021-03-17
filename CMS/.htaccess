@@ -1,8 +1,7 @@
 RewriteEngine on
 RewriteBase /
-RewriteCond on
 RewriteCond %{REQUEST_FILENAME}% !-d
 RewriteCond %{REQUEST_FILENAME}% !-f
-RewriteRule ^(.+)$ admin-dashboard/index.php [QSA,L]
+RewriteRule ^(.+)$ www/CMS/index.php [QSA,L]
 
-RewriteEngine on
+
