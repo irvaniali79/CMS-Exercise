@@ -14,7 +14,7 @@ function uri($uri,$class,$method,$requestMethod='GET')
 {
     $values=array();
     $subUris=explode('/',$uri);
-    $request_Uri=array_slice(explode('/',$_SERVER['REQUEST_URI']),2);
+    $request_Uri=array_slice(explode('/',$_SERVER['REQUEST_URI']),3);
     if($request_Uri[0]=='' or $request_Uri=='/'){
         $request_Uri[0]='home';
     }
