@@ -7,7 +7,7 @@ require_once(realpath(dirname(__FILE__) . "/../layouts/head-tag.php"));
 </section>
 <section class="row my-3">
     <section class="col-12">
-        <h1 class="h4 border-bottom">Sport</h1>
+        <h1 class="h4 border-bottom"><?php echo $category['name']?></h1>
     </section>
 </section>
 
