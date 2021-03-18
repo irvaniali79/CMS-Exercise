@@ -85,7 +85,7 @@ class DataBase
         }
                 
     }
-    public function Delete($tableName,$id)
+    public function delete($tableName,$id)
     {
         $sql="DELETE FROM ".$tableName." WHERE `id`=? ";
         try{
