@@ -32,7 +32,8 @@ class DataBase
             }
             else{
                 $stmt=$this->connection->prepare($sql);
-                $stmt=$stmt->execute($values);
+
+                $stmt->execute($values);
                 $result=$stmt;
                 return $result;
 
@@ -69,7 +70,7 @@ class DataBase
             }
         }
         $sql.=" `updated_at ` = now()";
-        $sql.= "WHERE `id` = ?";
+        $sql.= " WHERE `id` = ?";
         try {
             $stmt=$this->connection->prepare($sql);
             $affectedrows=$stmt->execute(array_merge(array_filter(array_values($value)),[$id]));
