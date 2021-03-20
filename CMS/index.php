@@ -22,7 +22,7 @@ function uri($uri,$class,$method,$requestMethod='GET')
     if(sizeof($request_Uri)==sizeof($subUris) and $_SERVER['REQUEST_METHOD']==$requestMethod){
         foreach(array_combine($subUris,$request_Uri) as $subUri=>$request){
             if($subUri[0]=="{" and $subUri[strlen($subUri)-1]=="}"){
-                $values=array_push($values,$request);
+                array_push($values,$request);
             }
             else if ($subUri!=$request){
                 $break=true;
@@ -36,7 +36,7 @@ function uri($uri,$class,$method,$requestMethod='GET')
     {
         $class="AdminDashboard\\".$class;
         $object = new $class;
-        if(sizeof($values)>0){
+        if(sizeof([$values])>0){
             if($requestMethod=="POST" ){
                 if( isset($_FILES)){
                     $request=array_merge($_POST,$_FILES);
@@ -50,7 +50,8 @@ function uri($uri,$class,$method,$requestMethod='GET')
                 }  
             }
             else{
-                $object->$method(implode(',',$_POST));
+               
+                $object->$method(implode(',' , $values));
             }   
 
         }
@@ -82,7 +83,7 @@ uri('category','Category','index');
 uri('category/show/{id}','Category','show');
 uri('category/edit/{id}','Category','edit');
 uri('category/delete','Category','delete');
-uri('category/update/{id}','Category','update');
+uri('category/update/{id}','Category','update','POST');
 uri('category/store','Category','store','POST');
 uri('category/create','Category','create');
 
