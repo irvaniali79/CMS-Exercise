@@ -88,5 +88,14 @@ uri('category/store','Category','store','POST');
 uri('category/create','Category','create');
 
 
+//Article Route
+
+uri('article','Article','index');
+uri('article/show/{id}','Article','show');
+uri('article/edit/{id}','Article','edit');
+uri('article/delete/{id}','Article','delete');
+uri('article/update/{id}','Article','update','POST');
+uri('article/store','Article','store','POST');
+uri('article/create','Article','create');
 
 
