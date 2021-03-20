@@ -82,7 +82,7 @@ function uri($uri,$class,$method,$requestMethod='GET')
 uri('category','Category','index');
 uri('category/show/{id}','Category','show');
 uri('category/edit/{id}','Category','edit');
-uri('category/delete','Category','delete');
+uri('category/delete/{id}','Category','delete');
 uri('category/update/{id}','Category','update','POST');
 uri('category/store','Category','store','POST');
 uri('category/create','Category','create');
