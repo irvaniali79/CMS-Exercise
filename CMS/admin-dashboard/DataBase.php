@@ -58,7 +58,7 @@ class DataBase
     }
     public function update($tableName,$id,$fields,$values)
     {
-        $sql="UPADATE ".$tableName." SET ;";
+        $sql="UPDATE ".$tableName." SET ";
         foreach (array_combine($fields,$values) as $field => $value) {
             if($value)
             {
@@ -69,12 +69,12 @@ class DataBase
                 $sql.=" `".$field."` = NULL ,";
             }
         }
-        $sql.=" `updated_at ` = now()";
-        $sql.= " WHERE `id` = ?";
+        $sql.=" `updated_at` = now()";
+        $sql.= " WHERE `id` = ? ;";
         try {
             $stmt=$this->connection->prepare($sql);
             $affectedrows=$stmt->execute(array_merge(array_filter(array_values($value)),[$id]));
-
+            
             if(isset($affectedrows)){
                 echo "recored are Updated ";
             }
@@ -91,7 +91,7 @@ class DataBase
         $sql="DELETE FROM ".$tableName." WHERE `id`=? ";
         try{
         $stmt=$this->connection->prepare($sql);
-        $affectedrows=$stmt->execute($id);
+        $affectedrows=$stmt->execute([$id]);
         if(isset($affectedrows)){
             echo "recored are deleted ";      
         }
