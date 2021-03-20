@@ -60,7 +60,7 @@ class DataBase
     {
         $sql="UPDATE ".$tableName." SET ";
         foreach (array_combine($fields,$values) as $field => $value) {
-            if($value)
+            if($values)
             {
                 $sql.=" `".$field."` = ? ,"; 
             }
@@ -73,8 +73,7 @@ class DataBase
         $sql.= " WHERE `id` = ? ;";
         try {
             $stmt=$this->connection->prepare($sql);
-            $affectedrows=$stmt->execute(array_merge(array_filter(array_values($value)),[$id]));
-            
+            $affectedrows=$stmt->execute(array_merge(array_filter(array_values($values)),[$id]));
             if(isset($affectedrows)){
                 echo "recored are Updated ";
             }
