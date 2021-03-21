@@ -10,7 +10,7 @@ require_once(realpath(dirname(__FILE__) . "/../layouts/head-tag.php"));
 <section class="row my-3">
     <section class="col-12">
 
-        <form method="post" action="http://localhost/admin-panel/article/store" enctype="multipart/form-data">
+        <form method="post" action="http://localhost/www/CMS/article/store" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="title">Title</label>
                 <input type="text" class="form-control" id="title" name="title" placeholder="Enter title ..." required autofocus>
