@@ -22,13 +22,27 @@ class Article extends Admin{
     }
 
     public function create(){
-        require_once (realpath(dirname(__FILE__)."/../template/admin/articles/create.php"));
-        
+        $db =new Database();
+        $categories= $db->select("SELECT * FROM `categories` ORDER BY `id` DESC;");
+        require_once (realpath(dirname(__FILE__)."/../template/admin/articles/create.php"));   
     }
     public function store($request)
     {
         $db = new DataBase();
-        $db->insert('articles',array_keys($request),array_values($request));
+        if($request['cat_id']!=null){
+            $request['image']=$this->saveimage($request['image'],'article-image');
+            if($request['image']){
+                $request=array_merge($request,array('user_id'=>1));
+                $db->insert('articles',array_keys($request),array_values($request));
+                $this->redirect('article');
+            }
+            else $this->redirectback();
+        }
+        else{
+            $this->redirectback();
+        }
+
+        
         $this->redirect('article');
     } 
     public function edit($id){
