@@ -36,4 +36,8 @@ class Admin{
         }
 
     } 
+    protected function removeimage($path){
+        $Path = $_SERVER['DOCUMENT_ROOT']."www/CMS/".$path;
+        unlink($path);
+    }
 }
