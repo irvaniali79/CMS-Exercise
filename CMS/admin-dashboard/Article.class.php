@@ -48,16 +48,34 @@ class Article extends Admin{
     public function edit($id){
         $db = new Database();
         $article= $db->select("SELECT * FROM `articles` WHERE `id` = ?;",[$id])->fetch();
+        $categories= $db->select("SELECT * FROM `categories` ORDER BY `id` DESC;");
         require_once (realpath(dirname(__FILE__)."/../template/admin/articles/edit.php"));
 
     } 
     public function update($request,$id){
-        $db = new Database();
-        $db->update('articles',$id,array_keys($request),$request);
-        $this->redirect('article');
+        $db = new DataBase();
+        if($request['cat_id']!=null){
+            $request['image']=$this->saveimage($request['image'],'article-image');
+            if($request['image']){
+                $request=array_merge($request,array('user_id'=>1));
+                $db->insert('articles',array_keys($request),array_values($request));
+                $this->redirect('article');
+            }
+            else{
+                unset($request['image']);
+            }
+            $request= array_merge($request,array('user_id'=>1));
+            $db->update('articles',$id,array_keys($request),$request);
+            $this->redirect('article');
+        }
+        else{
+            $this->redirectback();
+        }
     }
     public function delete($id){
         $db = new Database();
+        $article=$db->select("SELECT * FROM `articles` WHERE `id` = ? ;",[$id])->fetch();
+        $this->removeimage($article['image']);
         $db->delete('articles',$id);
         $this->redirectback();
     }
