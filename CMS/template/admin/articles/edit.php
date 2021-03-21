@@ -8,7 +8,7 @@ require_once(realpath(dirname(__FILE__) . "/../layouts/head-tag.php"));
 <section class="row my-3">
     <section class="col-12">
 
-        <form method="post" action="http://localhost/admin-panel/article/update/<?php echo $id;?>"
+        <form method="post" action="http://localhost/www/CMS/article/update/<?php echo $id;?>"
               enctype="multipart/form-data">
             <div class="form-group">
                 <label for="title">Title</label>
@@ -26,7 +26,7 @@ require_once(realpath(dirname(__FILE__) . "/../layouts/head-tag.php"));
             </div>
 
             <div class="form-group">
-                <img style="width: 100px;" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/admin-panel/'
+                <img style="width: 100px;" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/www/CMS/'
                     .$article['image'];?>" alt="">
                 <hr/>
                 <label for="image">Image</label>
