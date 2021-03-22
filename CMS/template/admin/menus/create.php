@@ -28,7 +28,7 @@ require_once(realpath(dirname(__FILE__) . "/../layouts/head-tag.php"));
 
                     <option value="">root</option>
                     <?php foreach($menus as $menu){?>
-                        <option value="<?php echo $$menu['id']?>"><?php echo $$menu['name']?></option>
+                        <option value="<?php echo $menu['id']?>"><?php echo $menu['name']?></option>
                     <?php }?>
 
                 </select>
