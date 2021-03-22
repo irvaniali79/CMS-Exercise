@@ -60,7 +60,7 @@ class CreateDB extends Database
             `id` int(11) DEFAULT NULL AUTO_INCREMENT,
             `name` varchar(200) COLLATE utf8_persian_ci NOT NULL,
             `url` varchar(300) COLLATE utf8_persian_ci NOT NULL,
-            `parent_id` int(11) NOT NULL ,
+            `parent_id` int(11) NULL ,
             `created_at` datetime DEFAULT NULL,
             `updated_at` datetime DEFAULT NULL,
             PRIMARY KEY (`id`),
