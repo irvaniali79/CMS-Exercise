@@ -60,7 +60,7 @@ class DataBase
     {
         $sql="UPDATE ".$tableName." SET ";
         foreach (array_combine($fields,$values) as $field => $value) {
-            if($values)
+            if($value)
             {
                 $sql.=" `".$field."` = ? ,"; 
             }
