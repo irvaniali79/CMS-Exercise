@@ -23,7 +23,7 @@ class Menu extends Admin
 
     public function create(){
         $db =new Database();
-        $menus= $db->select("SELECT * FROM `menus` WHERE `parent_id` IS NULL;");
+        $menus= $db->select("SELECT * FROM `menus` WHERE `parent_id` IS NULL;")->fetchAll();
         require_once (realpath(dirname(__FILE__)."/../template/admin/menus/create.php"));   
     }
     public function store($request)
@@ -34,7 +34,7 @@ class Menu extends Admin
     } 
     public function edit($id){
         $db =new Database();
-        $menus= $db->select("SELECT * FROM `menus` WHERE `parent_id` IS NULL;");
+        $menus= $db->select("SELECT * FROM `menus` WHERE `parent_id` IS NULL;")->fetchAll();
         $menu= $db->select("SELECT * FROM `menus` WHERE (`id` = ?);",[$id])->fetch();
         require_once (realpath(dirname(__FILE__)."/../template/admin/menus/edit.php"));   
         
