@@ -29,27 +29,19 @@ require_once(realpath(dirname(__FILE__) . "/../layouts/head-tag.php"));
                 </tr>
             </thead>
             <tbody>
+            <?php foreach($menus as $menu){?>
                 <tr>
-                    <td>1</td>
-                    <td>home</td>
-                    <td>#</td>
-                    <td></td>
+                    <td><?php echo $menu['id'];?></td>
+                    <td><?php echo $menu['name'];?></td>
+                    <td><?php echo $menu['url'];?></td>
+                    <td><?php echo $menu['parent_id'];?></td>
                     <td>
-                        <a role="button" class="btn btn-sm btn-primary text-white" href="http://localhost/www/CMS/menu/edit/1">edit</a>
-                        <a role="button" class="btn btn-sm btn-danger text-white" href="http://localhost/www/CMS/menu/delete/1">delete</a>
+                        <a role="button" class="btn btn-sm btn-primary text-white" href="http://localhost/www/CMS/menu/edit/<?php echo $menu['id'];?>">edit</a>
+                        <a role="button" class="btn btn-sm btn-danger text-white" href="http://localhost/www/CMS/menu/delete/<?php echo $menu['id'];?>">delete</a>
                     </td>
                 </tr>
 
-                <tr>
-                    <td>2</td>
-                    <td>news</td>
-                    <td>#</td>
-                    <td>1</td>
-                    <td>
-                        <a role="button" class="btn btn-sm btn-primary text-white" href="http://localhost/www/CMS/menu/edit/1">edit</a>
-                        <a role="button" class="btn btn-sm btn-danger text-white" href="http://localhost/www/CMS/menu/delete/1">delete</a>
-                    </td>
-                </tr>
+            <?php }?>
             </tbody>
         </table>
     </section>

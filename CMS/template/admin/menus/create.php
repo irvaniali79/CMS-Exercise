@@ -26,7 +26,7 @@ require_once(realpath(dirname(__FILE__) . "/../layouts/head-tag.php"));
                 <label for="parent_id">parent ID</label>
                 <select name="parent_id" id="parent_id" class="form-control" autofocus>
 
-                    <option value="">root</option>
+                    <option value="NULL">root</option>
                     <?php foreach($menus as $menu){?>
                         <option value="<?php echo $menu['id']?>"><?php echo $menu['name']?></option>
                     <?php }?>
