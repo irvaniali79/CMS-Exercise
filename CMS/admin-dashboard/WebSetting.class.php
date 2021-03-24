@@ -33,10 +33,12 @@ class WebSetting extends Admin {
             unset($request['icon']);
         }
         if($setting!=null){
-            $db->update('websetting',$request['id'],array_keys($request),$request);
+            $db->update('websetting',$setting['id'],array_keys($request),$request);
         }
         else{
             $db->insert('websetting',array_keys($request),$request);
         }
+        $this->redirect('web-setting');
+
     }
 }
