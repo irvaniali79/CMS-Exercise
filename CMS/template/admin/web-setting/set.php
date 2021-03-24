@@ -29,19 +29,22 @@ require_once(realpath(dirname(__FILE__) . "/../layouts/head-tag.php"));
            <div class="form-group">
            <?php if($setting !=null){ ?>
                     <img style="width: 100px;" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/www/CMS/'.$setting['logo']; ?>" alt="" >
-                <hr/>
+                    </br>
                 <?php } ?>
                 <label for="logo">Logo</label>
                 <input type="file" id="logo" name="logo" class="form-control-file" autofocus>
+                <hr/>
             </div>
 
             <div class="form-group">
             <?php if($setting !=null){ ?>
                     <img style="width: 100px;" src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/www/CMS/'.$setting['icon']; ?>" alt="" >
-                <hr/>
+                    </br>
+
                 <?php } ?>
                 <label for="icon">Icon</label>
                 <input type="file" id="icon" name="icon" class="form-control-file" autofocus>
+                <hr/>
             </div>
 
             <button type="submit" class="btn btn-primary btn-sm">set</button>
