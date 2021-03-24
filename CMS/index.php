@@ -4,11 +4,13 @@ require_once ("admin-dashboard/CreateDB.php");
 require_once ("admin-dashboard/Article.class.php");
 require_once ("admin-dashboard/Menu.class.php");
 require_once ("admin-dashboard/WebSetting.class.php");
+require_once ("admin-dashboard/User.class.php");
 
 
 use AdminDashboard\Category;
 use AdminDashboard\Article;
 use AdminDashboard\WebSetting;
+use AdminDashboard\User;
 use AdminDashboard\Menu;
 use DataBase\CreateDB;
 
@@ -123,3 +125,12 @@ uri('menu/create','Menu','create');
 uri('web-setting','WebSetting','index');
 uri('web-setting/store','WebSetting','store','POST');
 uri('web-setting/set','WebSetting','set');
+
+//Users Route
+
+uri('user','User','index');
+uri('user/edit/{id}','User','edit');
+uri('user/update/{id}','User','update','POST');
+uri('user/delete/{id}','User','delete');
+uri('user/permission/{id}','User','permission');
+
