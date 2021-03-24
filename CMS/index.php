@@ -120,6 +120,6 @@ uri('menu/create','Menu','create');
 //WebSetting Route
 
 
-uri('websetting','WebSetting','index');
-uri('websetting/store','WebSetting','store','POST');
-uri('websetting/set','WebSetting','set');
+uri('web-setting','WebSetting','index');
+uri('web-setting/store','WebSetting','store','POST');
+uri('web-setting/set','WebSetting','set');
