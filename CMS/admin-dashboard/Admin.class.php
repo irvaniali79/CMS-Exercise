@@ -1,6 +1,12 @@
 <?php
 namespace AdminDashboard;
 class Admin{
+    public function __construct()
+    {   
+        $auth = new Auth();
+        $auth->checkadmin();
+        
+    }
     protected function redirect($url)
     {
         $protocol=stripos( $_SERVER['SERVER_PROTOCOL'],'https')===true ? "https://":"http://";
