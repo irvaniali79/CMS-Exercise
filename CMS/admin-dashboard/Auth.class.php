@@ -50,7 +50,7 @@ class Auth
             $this->redirectback();
         } else {
             $db = new DataBase();
-            $request['password'] = hash("md5",$request['password']);
+            $request['password'] = $this->hash($request['password']);
             $db->insert('users', array_keys($request), $request);
             $this->redirect('login');
         }
@@ -79,4 +79,8 @@ class Auth
             $this->redirect('home');
         }
     }
+    public function hash($string){
+        $hashstring = password_hash($string,PASSWORD_DEFAULT);
+        return $hashstring;
+    } 
 }
