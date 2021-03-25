@@ -8,6 +8,7 @@ use DataBase\DataBase;
 
 class Auth
 {
+
     protected function redirect($url)
     {
         $protocol = stripos($_SERVER['SERVER_PROTOCOL'], 'https') === true ? "https://" : "http://";
@@ -16,6 +17,14 @@ class Auth
     protected function redirectback()
     {
         header("Location: " . $_SERVER['HTTP_REFERER']);
+    }
+    public function __construct()
+    {   
+        if(session_status()==PHP_SESSION_NONE){
+            session_start();
+        }
+        
+        
     }
     public function login()
     {
