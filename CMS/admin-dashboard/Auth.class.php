@@ -50,7 +50,7 @@ class Auth
             $this->redirectback();
         } else {
             $db = new DataBase();
-            $request['password'] = $this->hash($request['password']);
+            $request['password'] = hash($request['password']);
             $db->insert('users', array_keys($request), $request);
             $this->redirect('login');
         }
