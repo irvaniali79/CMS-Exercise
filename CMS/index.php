@@ -5,6 +5,7 @@ require_once ("admin-dashboard/Article.class.php");
 require_once ("admin-dashboard/Menu.class.php");
 require_once ("admin-dashboard/WebSetting.class.php");
 require_once ("admin-dashboard/User.class.php");
+require_once ("admin-dashboard/Auth.class.php");
 
 
 use AdminDashboard\Category;
@@ -12,6 +13,7 @@ use AdminDashboard\Article;
 use AdminDashboard\WebSetting;
 use AdminDashboard\User;
 use AdminDashboard\Menu;
+use AdminDashboard\Auth;
 use DataBase\CreateDB;
 
 
@@ -134,3 +136,10 @@ uri('user/update/{id}','User','update','POST');
 uri('user/delete/{id}','User','delete');
 uri('user/permission/{id}','User','permission');
 
+//Authtenthication Route
+
+uri('login','Auth','login');
+uri('check-login','Auth','checklogin','POST');
+uri('register','Auth','register');
+uri('register-store','Auth',"store",'POST');
+uri('logout','Auth','logout');
