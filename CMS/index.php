@@ -141,5 +141,5 @@ uri('user/permission/{id}','User','permission');
 uri('login','Auth','login');
 uri('check-login','Auth','checklogin','POST');
 uri('register','Auth','register');
-uri('register-store','Auth',"store",'POST');
+uri('register/store','Auth',"store",'POST');
 uri('logout','Auth','logout');
