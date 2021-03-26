@@ -9,8 +9,8 @@ use DataBase\DataBase;
 class Auth
 {
     public function __construct()
-    {   
-        if(session_status()==PHP_SESSION_NONE){
+    {
+        if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
     }
@@ -56,9 +56,14 @@ class Auth
             $this->redirectback();
         } else {
             $db = new DataBase();
-            $request['password'] = $this->hash($request['password']);
-            $db->insert('users', array_keys($request), $request);
-            $this->redirect('login');
+            $user = $db->select("SELECT * FROM `users` WHERE `email`=? ;", [$request['email']])->fetch();
+            if ($user != null) {
+                $this->redirectback();
+            } else {
+                $request['password'] = $this->hash($request['password']);
+                $db->insert('users', array_keys($request), $request);
+                $this->redirect('login');
+            }
         }
     }
     public function logout()
@@ -73,7 +78,7 @@ class Auth
     {
         if (isset($_SESSION['user'])) {
             $db = new DataBase();
-            $user = $db->select("SELECT * FROM `users` WHERE `id` = ? ; ",[$_SESSION['user']])->fetch();
+            $user = $db->select("SELECT * FROM `users` WHERE `id` = ? ; ", [$_SESSION['user']])->fetch();
             if ($user != null) {
                 if ($user['permission'] != 'admin') {
                     $this->redirect('home');
@@ -85,8 +90,9 @@ class Auth
             $this->redirect('home');
         }
     }
-    public function hash($string){
-        $hashstring = password_hash($string,PASSWORD_DEFAULT);
+    public function hash($string)
+    {
+        $hashstring = password_hash($string, PASSWORD_DEFAULT);
         return $hashstring;
-    } 
+    }
 }
