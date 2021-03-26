@@ -38,7 +38,7 @@ class Auth
         } else {
             $db = new DataBase();
             $user = $db->select("SELECT * FROM `users` WHERE `email`=? ;", [$request['email']])->fetch();
-            if ($user != null && password_verify($user['password'], $request['password'])) {
+            if ($user != null && password_verify($request['password'], $user['password'])) {
                 $_SESSION['user'] = $user['id'];
                 $this->redirect('admin');
             } else {
@@ -71,9 +71,9 @@ class Auth
     }
     public function checkadmin()
     {
-        if (isset($_SESSION['id'])) {
+        if (isset($_SESSION['user'])) {
             $db = new DataBase();
-            $user = $db->select("SELECT * FROM `users` WHERE `id` = ? ; ")->fetch();
+            $user = $db->select("SELECT * FROM `users` WHERE `id` = ? ; ",[$_SESSION['user']])->fetch();
             if ($user != null) {
                 if ($user['permission'] != 'admin') {
                     $this->redirect('home');
