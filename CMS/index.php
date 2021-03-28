@@ -6,6 +6,7 @@ require_once ("admin-dashboard/Menu.class.php");
 require_once ("admin-dashboard/WebSetting.class.php");
 require_once ("admin-dashboard/User.class.php");
 require_once ("admin-dashboard/Auth.class.php");
+require_once ("admin-dashboard/Home.class.php");
 
 
 use AdminDashboard\Category;
@@ -14,6 +15,7 @@ use AdminDashboard\WebSetting;
 use AdminDashboard\User;
 use AdminDashboard\Menu;
 use AdminDashboard\Auth;
+use AdminDashboard\Home;
 use DataBase\CreateDB;
 
 
@@ -143,3 +145,10 @@ uri('check-login','Auth','checklogin','POST');
 uri('register','Auth','register');
 uri('register/store','Auth',"store",'POST');
 uri('logout','Auth','logout');
+
+//Home Route
+
+uri('home','Home','index');
+uri('show-article/{id}','Home','show');
+uri('show-category/{id}','Home','category');
+uri('comment-store','Home',"commentstore",'POST');
