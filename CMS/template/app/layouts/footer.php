@@ -4,8 +4,7 @@
             <section class="footer-col">
                 <img class="footer-logo" src="http://localhost/www/CMS/public/setting/logo.png" alt="">
                 <section class="clear-fix"></section>
-                <p class="footer-p">Bit coin is an open-source, peer-to-peer, digital decentralized cryptocurrency.
-                    Powered by blockchain technology, its defining characteristic is</p>
+                <p class="footer-p"><?php echo $setting['description'];?></p>
                 <p class="footer-p footer-p-margin-20">
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     Copyright 2019 All rights reserved | This template is made with <i class="ion-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
