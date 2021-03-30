@@ -48,7 +48,7 @@ class CreateDB extends Database
             `user_id` int(11) NOT NULL ,
             `comment` text COLLATE utf8_persian_ci NOT NULL,
             `article_id` int(11) NOT NULL ,
-            `status` enum('disable','enable') COLLATE utf8_persian_ci NOT NULL DEFAULT 'disable',
+            `status` enum('unseen','seen','approve') COLLATE utf8_persian_ci NOT NULL DEFAULT 'unseen',
             `created_at` datetime NOT NULL,
             `updated_at` datetime DEFAULT NULL,
             PRIMARY KEY (`id`),
