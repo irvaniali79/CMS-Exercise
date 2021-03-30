@@ -7,7 +7,7 @@ use DataBase\DataBase;
 
 
 
-class Comments extends Admin{
+class Comment extends Admin{
     public function index()
     {
         $db = new Database();
