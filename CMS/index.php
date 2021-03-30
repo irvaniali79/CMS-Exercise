@@ -7,9 +7,11 @@ require_once ("admin-dashboard/WebSetting.class.php");
 require_once ("admin-dashboard/User.class.php");
 require_once ("admin-dashboard/Auth.class.php");
 require_once ("admin-dashboard/Home.class.php");
+require_once ("admin-dashboard/Comment.class.php");
 
 
 use AdminDashboard\Category;
+use AdminDashboard\Comment;
 use AdminDashboard\Article;
 use AdminDashboard\WebSetting;
 use AdminDashboard\User;
