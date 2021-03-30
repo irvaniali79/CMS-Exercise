@@ -146,9 +146,17 @@ uri('register','Auth','register');
 uri('register/store','Auth',"store",'POST');
 uri('logout','Auth','logout');
 
+//Comments Route
+
+
+uri('comment','Comment','index');
+uri('comment/{id}','Comment','show');
+uri('comment/approve/{id}','Comment','approve');
+
 //Home Route
 
 uri('home','Home','index');
 uri('show-article/{id}','Home','show');
 uri('show-category/{id}','Home','category');
 uri('comment-store','Home',"commentstore",'POST');
+
