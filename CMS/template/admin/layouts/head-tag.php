@@ -1,12 +1,17 @@
 <!doctype html>
 <html lang="en">
 <head>
-  
+<?php
+if(!isset($db)){
+    $db= new \DataBase\DataBase();
+} 
+$setting= $db->select("SELECT * FROM `websetting`;")->fetch();
+?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title></title>
-    <link rel="shortcut icon" href="http://localhost/www/CMS/" type="image/x-icon" />
+    <title><?php echo $setting['title'] ?></title>
+    <link rel="shortcut icon" href="http://localhost/www/CMS/<?php echo $setting['icon'] ?>" type="image/x-icon" />
 
     <link rel="stylesheet" href="http://localhost/www/CMS/public/css/admin/bootstrap.min.css" type="text/css">
 
@@ -21,13 +26,20 @@
 
 <nav class="navbar  navbar-light bg-gradiant-green-blue nav-shadow">
 
-    <a class="navbar-brand" href="http://localhost/www/CMS/admin"></a>
+    <a class="navbar-brand" href="http://localhost/www/CMS/admin"> <?php echo $setting['title'] ?></a>
     <span class="">
+        <?php
+                $unseenComments = $db->select("SELECT COUNT(*) FROM `comments` WHERE `status` = 'unseen' ;")->fetch();
+                $username = $db->select("SELECT * FROM `users` WHERE( `id` = '".$_SESSION['user']."') ;")->fetch();
+
+        ?>
         
-                <a class="text-decoration-none px-3 text-dark" href="http://localhost/www/CMS/comment"><i class="fas fa-comments"></i> <span class="badge badge-danger"></span> </a>
+                <a class="text-decoration-none px-3 text-dark" href="http://localhost/www/CMS/comment"><i class="fas fa-comments"></i> 
+<?php if($unseenComments['COUNT(*)']) {?><span class="badge badge-danger"><?php echo $unseenComments['COUNT(*)'] ?> new!!!</span> <?php }?></a>
             <span class="dropdown">
                 <a class="dropdown-toggle text-decoration-none text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-user"></i>
+                    <?php echo $username['username'] ?>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="http://localhost/www/CMS/logout">logout</a>
