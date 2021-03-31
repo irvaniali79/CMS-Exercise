@@ -46,7 +46,7 @@ require_once(realpath(dirname(__FILE__) . "/../layouts/head-tag.php"));
 <!--                        <h5 class="card-title">Info card title</h5>-->
                         <section class="d-flex justify-content-between align-items-center font-12">
                             <span class=""><i class="far fa-eye-slash"></i> Unseen <span class="badge badge-pill mx-1"><?php echo $commentsUnseenCount['COUNT(*)']; ?></span></span>
-                            <span class=""><i class="far fa-check-circle"></i> Approved <span class="badge badge-pill mx-1"><?php echo $commentsApprovedCount['COUNT(*)']; ?></span></span>
+                            <span class=""><i class="far fa-check-circle"></i> Approved <span class="badge badge-pill mx-1"><?php echo $commentsApproveCount['COUNT(*)']; ?></span></span>
                         </section>
                     </div>
                 </div>

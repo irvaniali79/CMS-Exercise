@@ -22,7 +22,7 @@ require_once(realpath(dirname(__FILE__) . "/../layouts/head-tag.php"));
         </thead>
         <tbody>
         <?php  $i=0?>
-            <?php foreach ($commets as $comment) { $i++; ?>
+            <?php foreach ($comments as $comment) { $i++; ?>
                 <tr>
                     <td><a href="http://localhost/www/CMS/comment/show/<?php echo $comment['id'] ?>"><?php echo $i?></a></td>
                     <td><?php echo $comment['user_id'] ?></td>
