@@ -8,10 +8,12 @@ require_once ("admin-dashboard/User.class.php");
 require_once ("admin-dashboard/Auth.class.php");
 require_once ("admin-dashboard/Home.class.php");
 require_once ("admin-dashboard/Comment.class.php");
+require_once ("admin-dashboard/Dashboard.class.php");
 
 
 use AdminDashboard\Category;
 use AdminDashboard\Comment;
+use AdminDashboard\Dashboard;
 use AdminDashboard\Article;
 use AdminDashboard\WebSetting;
 use AdminDashboard\User;
@@ -154,6 +156,10 @@ uri('logout','Auth','logout');
 uri('comment','Comment','index');
 uri('comment/{id}','Comment','show');
 uri('comment/approve/{id}','Comment','approve');
+
+//Dashboard Route
+
+uri('admin','Dashboard','index');
 
 //Home Route
 
