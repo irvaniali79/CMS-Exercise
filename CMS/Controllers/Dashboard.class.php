@@ -1,7 +1,8 @@
 <?php 
 namespace AdminDashboard;
 require_once ("Admin.class.php");
-require_once (realpath(dirname(__FILE__)."/DataBase.php"));
+require_once(realpath(dirname(__FILE__) . "/../vendor/database/DataBase.php"));
+
 use DataBase\DataBase;
 
 
@@ -24,7 +25,7 @@ class Dashboard extends Admin{
         
         
 
-        require_once (realpath(dirname(__FILE__)."/../template/admin/dashboard/index.php"));
+        require_once (realpath(dirname(__FILE__)."/../view/admin/dashboard/index.php"));
     }
    
 }
