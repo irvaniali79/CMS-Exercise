@@ -1,7 +1,8 @@
 <?php
 namespace AdminDashboard;
 require_once ("Admin.class.php");
-require_once (realpath(dirname(__FILE__)."/DataBase.php"));
+require_once(realpath(dirname(__FILE__) . "/../vendor/database/DataBase.php"));
+
 
 use DataBase\DataBase;
 
@@ -10,13 +11,13 @@ class Menu extends Admin
     public function index(){
         $db = new Database();
         $menus= $db->select("SELECT * FROM `menus` ORDER BY `id` DESC;");
-        require_once (realpath(dirname(__FILE__)."/../template/admin/menus/index.php"));
+        require_once (realpath(dirname(__FILE__)."/../view/admin/menus/index.php"));
         
     }
     public function show($id){
         $db = new Database();
         $menu= $db->select("SELECT * FROM `menus` WHERE (`id` = ?);",[$id])->fetch();
-        require_once (realpath(dirname(__FILE__)."/../template/admin/menus/show.php"));
+        require_once (realpath(dirname(__FILE__)."/../view/admin/menus/show.php"));
         
 
     }
@@ -24,7 +25,7 @@ class Menu extends Admin
     public function create(){
         $db =new Database();
         $menus= $db->select("SELECT * FROM `menus` WHERE `parent_id` IS NULL;")->fetchAll();
-        require_once (realpath(dirname(__FILE__)."/../template/admin/menus/create.php"));   
+        require_once (realpath(dirname(__FILE__)."/../view/admin/menus/create.php"));   
     }
     public function store($request)
     {
@@ -36,7 +37,7 @@ class Menu extends Admin
         $db =new Database();
         $menus= $db->select("SELECT * FROM `menus` WHERE `parent_id` IS NULL;")->fetchAll();
         $menu= $db->select("SELECT * FROM `menus` WHERE (`id` = ?);",[$id])->fetch();
-        require_once (realpath(dirname(__FILE__)."/../template/admin/menus/edit.php"));   
+        require_once (realpath(dirname(__FILE__)."/../view/admin/menus/edit.php"));   
         
     } 
     public function update($request,$id){
