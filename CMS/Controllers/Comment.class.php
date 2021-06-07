@@ -21,14 +21,14 @@ class Comment extends Admin{
         }
         $comments= $db->select("SELECT * FROM `comments` ORDER BY `id` DESC;");
 
-        require_once (realpath(dirname(__FILE__)."/../template/admin/comments/index.php"));
+        require_once (realpath(dirname(__FILE__)."/../view/admin/comments/index.php"));
     }
     
     public function show($id)
     {   
         $db = new Database();
         $comment= $db->select("SELECT * FROM `comments` WHERE  `id`=?;",[$id]);
-        require_once (realpath(dirname(__FILE__)."/../template/admin/comments/show.php"));
+        require_once (realpath(dirname(__FILE__)."/../view/admin/comments/show.php"));
     }
     public function approve($id)
     {   
