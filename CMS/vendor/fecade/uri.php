@@ -23,7 +23,7 @@ function uri($uri,$class,$method,$requestMethod='GET')
 
     if(!$break)
     {
-        $class="AdminDashboard\\".$class;
+        $class="Controller\\".$class;
         $object = new $class;
         if(sizeof([$values])>0){
             if($requestMethod=="POST" ){
