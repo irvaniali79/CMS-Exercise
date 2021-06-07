@@ -1,15 +1,15 @@
 <?php
 
-require_once ("admin-dashboard/category.class.php");
-require_once ("admin-dashboard/CreateDB.php");
-require_once ("admin-dashboard/Article.class.php");
-require_once ("admin-dashboard/Menu.class.php");
-require_once ("admin-dashboard/WebSetting.class.php");
-require_once ("admin-dashboard/User.class.php");
-require_once ("admin-dashboard/Auth.class.php");
-require_once ("admin-dashboard/Home.class.php");
-require_once ("admin-dashboard/Comment.class.php");
-require_once ("admin-dashboard/Dashboard.class.php");
+require_once ("Controller/category.class.php");
+require_once ("Controller/CreateDB.php");
+require_once ("Controller/Article.class.php");
+require_once ("Controller/Menu.class.php");
+require_once ("ControllerWebSetting.class.php");
+require_once ("Controller/User.class.php");
+require_once ("Controller/Auth.class.php");
+require_once ("Controller/Home.class.php");
+require_once ("Controller/Comment.class.php");
+require_once ("Controller/Dashboard.class.php");
 
 
 use AdminDashboard\Category;
