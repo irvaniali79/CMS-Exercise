@@ -1,7 +1,8 @@
 <?php
 namespace AdminDashboard;
 require_once ("Admin.class.php");
-require_once (realpath(dirname(__FILE__)."/DataBase.php"));
+require_once(realpath(dirname(__FILE__) . "/../vendor/database/DataBase.php"));
+
 use DataBase\DataBase;
 
 
@@ -24,7 +25,7 @@ class Home{
 
         $setting=$db->select("SELECT * FROM `websetting` ;")->fetch();
         
-        require_once (realpath(dirname(__FILE__)."/../template/app/index.php"));
+        require_once (realpath(dirname(__FILE__)."/../view/app/index.php"));
     }
     public function show($id)
     {
@@ -48,7 +49,7 @@ class Home{
         $setting=$db->select("SELECT * FROM `websetting` ;")->fetch();
          
 
-        require_once (realpath(dirname(__FILE__)."/../template/app/show-article.php"));
+        require_once (realpath(dirname(__FILE__)."/../view/app/show-article.php"));
 
 
     }
