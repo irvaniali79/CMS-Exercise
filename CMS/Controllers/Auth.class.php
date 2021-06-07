@@ -26,11 +26,11 @@ class Auth
     }
     public function login()
     {
-        require_once(realpath(dirname(__FILE__) . "/../template/auth/login.php"));
+        require_once(realpath(dirname(__FILE__) . "/../view/auth/login.php"));
     }
     public function register()
     {
-        require_once(realpath(dirname(__FILE__) . "/../template/auth/register.php"));
+        require_once(realpath(dirname(__FILE__) . "/../view/auth/register.php"));
     }
     public function checklogin($request)
     {
