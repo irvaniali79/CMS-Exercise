@@ -2,7 +2,8 @@
 
 namespace AdminDashboard;
 
-require_once(realpath(dirname(__FILE__) . "/DataBase.php"));
+require_once(realpath(dirname(__FILE__) . "/../vendor/database/DataBase.php"));
+
 
 use DataBase\DataBase;
 
