@@ -1,6 +1,6 @@
 <?php
 namespace DataBase;
-require_once(realpath(dirname(__FILE__)."/../../Conrollers/DataBase.php"));
+require_once(realpath(dirname(__FILE__)."/../../Controllers/DataBase.php"));
 
 
 class CreateDB extends Database
