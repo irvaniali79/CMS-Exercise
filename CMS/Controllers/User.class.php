@@ -1,14 +1,15 @@
 <?php
 namespace AdminDashboard;
 require_once ("Admin.class.php");
-require_once (realpath(dirname(__FILE__)."/DataBase.php"));
+require_once(realpath(dirname(__FILE__) . "/../vendor/database/DataBase.php"));
+
 use DataBase\DataBase;
 
 class User extends Admin{
     public function index(){
         $db = new Database();
         $users= $db->select("SELECT * FROM `users` ORDER BY `id` DESC;");
-        require_once (realpath(dirname(__FILE__)."/../template/admin/users/index.php"));
+        require_once (realpath(dirname(__FILE__)."/../view/admin/users/index.php"));
         
     }
     public function permission($id){
@@ -26,7 +27,7 @@ class User extends Admin{
     public function edit($id){
         $db = new Database();
         $user= $db->select("SELECT * FROM `users` WHERE `id` = ?;",[$id])->fetch();
-        require_once (realpath(dirname(__FILE__)."/../template/admin/users/edit.php"));
+        require_once (realpath(dirname(__FILE__)."/../view/admin/users/edit.php"));
     }
     public function update($request,$id){
         $db = new Database();
